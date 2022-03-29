@@ -1,0 +1,83 @@
+// Tables
+.cell-numeric {
+  font-variant-numeric: tabular-nums;
+}
+
+// Forms
+.form-row {
+  margin-right: -12px;
+  margin-left: -12px;
+
+  > .col,
+  > [class*='col-'] {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+}
+
+.custom-select-wrapper {
+  position: relative;
+
+  .custom-select {
+    background-image: none;
+  }
+
+  &:after {
+    @include fontAwesome();
+    content: '\f078';
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    color: $grey;
+  }
+}
+
+.custom-control-label {
+  cursor: pointer;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px $primary;
+}
+
+.was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before,
+.custom-control-input.is-invalid:focus ~ .custom-control-label::before {
+  box-shadow: 0 0 0 1px $danger;
+}
+
+// Icons
+.icon-social {
+  @include transition-link;
+
+  text-decoration: none;
+  font-size: 24px;
+  color: $grey;
+  margin: 0 16px;
+
+  &:hover {
+    text-decoration: none;
+    color: $primary;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin: 0 32px 0 0;
+  }
+}
+
+// Lists
+.list-icon {
+  li {
+    @include list-icon('\f00c', 700, 16px, $primary);
+  }
+}
+
+// Separators
+.separator {
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background-color: $steel;
+}
