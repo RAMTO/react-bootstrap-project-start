@@ -15,13 +15,13 @@ const Header = () => {
         const web3Provider = new ethers.providers.Web3Provider(instance);
         setIsConnected(true);
         setProvider(web3Provider);
-
-        console.log('provider', provider);
       } catch (e) {
         console.error(`Connection error: ${e.message}`);
       }
     }
   };
+
+  console.log('provider', provider);
 
   return (
     <div className="bg-pale py-5">
@@ -37,12 +37,16 @@ const Header = () => {
           </div>
 
           <div>
-            {!isConnected ? (
-              <span onClick={() => handleConnectClick()} className="link-primary">
-                Connect
-              </span>
+            {web3Modal ? (
+              !isConnected ? (
+                <span onClick={() => handleConnectClick()} className="link-primary">
+                  Connect
+                </span>
+              ) : (
+                <span>Connected</span>
+              )
             ) : (
-              <span>Connected</span>
+              <span>Missing provider</span>
             )}
           </div>
         </div>
