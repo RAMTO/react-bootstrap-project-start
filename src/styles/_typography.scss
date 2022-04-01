@@ -34,6 +34,7 @@
 
 .link-primary {
   @include custom-underline($primary);
+  cursor: pointer;
 
   color: $primary;
   text-decoration: none;
@@ -46,6 +47,7 @@
 
 .link-secondary {
   @include custom-underline($secondary);
+  cursor: pointer;
 
   color: $secondary;
   text-decoration: none;
