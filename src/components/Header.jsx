@@ -6,7 +6,7 @@ import { useConnectionStatus } from '../hooks/provider';
 const Header = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [provider, setProvider] = useState(null);
-  const web3Modal = useConnectionStatus();
+  const web3Modal = useConnectionStatus(setIsConnected, setProvider);
 
   const handleConnectClick = async () => {
     if (web3Modal) {
